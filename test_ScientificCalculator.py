@@ -25,11 +25,11 @@ class TestCalculator:
         assert Scientific_Calculator.factorial(5.5) == 6
         
     def test_log(self):
-    	assert Scientific_Calculator.log(0) == 0
-    	assert Scientific_Calculator.log(-1) == 0
-    	assert Scientific_Calculator.log(-10) == 0
-    	assert Scientific_Calculator.log(2.718281828459045) == 1.0
-    	assert Scientific_Calculator.log(20) == 2.995732273553991
+    	assert Scientific_Calculator.natural_log(0) == 0
+    	assert Scientific_Calculator.natural_log(-1) == 0
+    	assert Scientific_Calculator.natural_log(-10) == 0
+    	assert Scientific_Calculator.natural_log(2.718281828459045) == 1.0
+    	assert Scientific_Calculator.natural_log(20) == 2.995732273553991
     	
     def test_power(self):
     	assert Scientific_Calculator.power(2,9) == 512
@@ -42,3 +42,4 @@ class TestCalculator:
     	assert Scientific_Calculator.power(-2, -3) == -0.125
     	assert Scientific_Calculator.power(-2, 4) == 16.0
     	assert Scientific_Calculator.power(1, 23) == 1.0
+

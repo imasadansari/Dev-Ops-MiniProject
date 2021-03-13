@@ -4,19 +4,19 @@ import math
 
 def square_root(num):
 	# GEtting Exception in case of taking sqare root of Negative numbers
-	if x >= 0:
-		x = math.sqrt(x)
-		return x
+	if num >= 0:
+		num = math.sqrt(num)
+		return num
 	else:
 		# Prevent Exception : ValueError: math domain error
 		# Occured due to taking sqare root of negative numeber
-		# x = x
+		# num == num
 		print("Cannot calculate Sqaure root of Negative numbers")
-		return float(x)
+		return float(num)
 
 	
 def factorial(num):
-	temp = float(x)
+	temp = float(num)
 	# TO prevent ValueError: factorial() not defined for negative values EXCEPTION
 	if temp >= 0:
 		# print(temp, "    ", round(temp))
@@ -32,14 +32,16 @@ def factorial(num):
 
 
 def natural_log(num):
-	temp = float(x)
+	temp = float(num)
 	
 	if(temp > 0):
 		temp = math.log(float(temp))
 		#return temp
 	else:
 		temp = 0
-	return temp	
+	return temp
+
+
 def power(num1, num2):
 	return (num1 ** num2)
 
