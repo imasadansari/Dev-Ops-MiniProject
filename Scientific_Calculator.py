@@ -2,11 +2,11 @@ import math
 
 # Functions For the operations
 
-def sqare_root(num):
+def square_root(num):
 	return math.sqrt(num)
 	
 def factorial(num):
-	return math.fact(num)
+	return math.factorial(num)
 
 def natural_log(num):
 	return math.log(num)

@@ -13,17 +13,17 @@ while True:
 		num = float(input("Enter the number: "))
 		
 		if operation == '1':
-			print(Scientific_Calculator.sqare_root(num))
+			print("Answer : ", Scientific_Calculator.square_root(num))
 			
 		elif operation == '2':
-			print(Scientific_Calculator.factorial(num))
+			print("Answer : ", Scientific_Calculator.factorial(num))
 		
 		elif operation == '3':
-			print(Scientific_Calculator.natural_log(num))
+			print("Answer : ", Scientific_Calculator.natural_log(num))
 		
 		elif operation == '4':
 			exp = float(input("Enter the power"))
-			print(Scientific_Calculator.power(num, exp))
+			print("Answer : ", Scientific_Calculator.power(num, exp))
 		break
 	else:
 		print("Please Enter a valid Input")
