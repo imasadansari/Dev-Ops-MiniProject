@@ -1,0 +1,10 @@
+FROM ubuntu:18.04
+RUN apt update
+RUN apt install -y python3
+RUN mkdir /home/Calculator && cd /home/Calculator
+COPY Calcultor_main.py .
+COPY requirements.txt .
+COPY Scientific_Calculator.py .
+
+# File would run from here onwards
+ENTRYPOINT python3 Calculator_main.py
