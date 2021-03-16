@@ -9,15 +9,16 @@ logging.basicConfig(filename='Calculator.log', level=logging.DEBUG, format='%(as
 def square_root(num):
 	# GEtting Exception in case of taking sqare root of Negative numbers
 	if num >= 0:
-		num = math.sqrt(num)
-		return num
+		ans = math.sqrt(num)
+		logging.debug('Square Root of {} = {}'.format(num, ans))
+		return ans
 	else:
 		# Prevent Exception : ValueError: math domain error
 		# Occured due to taking sqare root of negative numeber
 		# num == num
 		print("Cannot calculate Sqaure root of Negative numbers")
+		logging.debug('Square Root of {} = Cannot be caculated'.format(num))
 		return float(num)
-
 	
 def factorial(num):
 	temp = float(num)
@@ -25,14 +26,18 @@ def factorial(num):
 	if temp >= 0:
 		# print(temp, "    ", round(temp))
 		if temp == float(round(temp)):
-			temp = math.factorial(float(temp))
+			ans = math.factorial(float(temp))
+			logging.debug('Factorial of {} = {}'.format(temp, ans))
 		else:
-			temp = round(temp)
+			ans = round(temp)
 			print("Cannot take Factorial of Decimal Numbers, SO we converted It to INT")		
+			
+			logging.debug('Factorial of {} = Cannot be calculated as it is Decimal number'.format(temp))
 	else: 
-		temp = 0.0
+		ans = 0.0
 		print("Factorial of negative number cannot be taken")
-	return temp
+		logging.debug('Factorial of {} = Cannot be taken as it is negative number'.format(num))
+	return ans
 
 
 def natural_log(num):
@@ -40,14 +45,18 @@ def natural_log(num):
 	
 	if(temp > 0):
 		temp = math.log(float(temp))
+		logging.debug('Natural Log of {} = {}'.format(num, temp))
 		#return temp
 	else:
 		temp = 0
+		logging.debug('Natural Log of {} = Cannot be taken as it is wither Zero or Negative number'.format(num))
 	return temp
 
 
 def power(num1, num2):
-	return (num1 ** num2)
+	ans = (num1 ** num2)
+	logging.debug('{} to power of {} = {}'.format(num1, num2, ans))
+	return ans
 
 
 num1 = 225
