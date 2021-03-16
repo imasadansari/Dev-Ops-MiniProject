@@ -1,16 +1,20 @@
-# Python CircleCI 2.0 configuration file
-version: 2
+# Python CircleCI 2.1 configuration file
+version: 2.1
 jobs:
   build:
+    # executor: docker-publisher
+    environment:
+      IMAGE_NAME: devops_calculator
     docker:
       - image: circleci/python:3.7
-
     working_directory: ~/repo
 
     steps:
       # Step 1: obtain repo from GitHub
       - checkout
-      # Step 2: create virtual env and install dependencies
+      # Step 2: setup remote docker engine
+      - setup_remote_docker
+      # Step 3: create virtual env and install dependencies
       - run:
           name: install dependencies
           command: |
@@ -22,4 +26,14 @@ jobs:
           name: run tests
           command: |
             . v_env/bin/activate
+            flake8 --exclude=venv* --statistics
             pytest -v --cov=Scientific_Calculator
+      # Step 4: Build Docker Image
+      - run:
+          name: Build and Push Docker Image
+          command: |
+            docker build -t $IMAGE_NAME:latest .
+            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker tag $IMAGE_NAME $DOCKERHUB_USERNAME/$IMAGE_NAME:latest
+            docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:latest
+
